@@ -35,7 +35,7 @@ const skillCategories = [
       { name: "Java", iconClass: "devicon-java-plain colored", icon: null, customColor: "" },
       { name: "Python", iconClass: "devicon-python-plain colored", icon: null, customColor: "" },
       { name: "SQL", iconClass: "", icon: Database, customColor: "text-purple-500" },
-      { name: "C++", iconClass: "devicon-cplusplus-plain colored", icon: null, customColor: "" },
+      { name: "C", iconClass: "devicon-c-plain colored", icon: null, customColor: "" },
     ],
   },
   {
