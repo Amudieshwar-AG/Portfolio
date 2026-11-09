@@ -8,7 +8,7 @@ const Contact = () => {
   const [copied, setCopied] = useState(false);
   const sectionRef = useRef(null);
   const hasScrambled = useRef(false);
-  const email = "hello@johndoe.dev";
+  const email = "amudieshwar22@gmail.com";
 
   // Text scramble effect
   useEffect(() => {
@@ -47,9 +47,8 @@ const Contact = () => {
   };
 
   const socials = [
-    { label: "GitHub", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Twitter / X", href: "#" },
+    { label: "GitHub", href: "https://github.com/Amudieshwar-AG/Amudieshwar-AG" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/amudieshwar-a-g/" },
   ];
 
   return (
@@ -87,7 +86,13 @@ const Contact = () => {
               Email
             </p>
             <div className="flex items-center gap-4 flex-wrap">
-              <span className="font-mono text-lg md:text-2xl text-foreground break-all">{email}</span>
+              <a
+                href={`mailto:${email}?subject=Opportunity%20%2F%20Collaboration`}
+                className="font-mono text-lg md:text-2xl text-foreground hover:text-[#FAC300] transition-colors break-all underline decoration-white/20 hover:decoration-[#FAC300] underline-offset-4"
+                title="Click to compose an email"
+              >
+                {email}
+              </a>
               <button
                 onClick={handleCopy}
                 className="flex items-center gap-1 font-mono text-xs px-3 py-1.5 rounded-full border border-foreground/10 text-muted-foreground hover:text-lime hover:border-lime/30 transition-colors"
@@ -134,6 +139,8 @@ const Contact = () => {
                 <motion.a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground/70 hover:text-lime transition-colors group"
                   whileHover="hover"
                 >

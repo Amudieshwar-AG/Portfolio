@@ -7,40 +7,40 @@
 
 @layer base {
   :root {
-    --background: 0 0% 2%;
+    --background: 240 14% 6%;
     --foreground: 0 0% 94%;
 
-    --card: 0 0% 6%;
+    --card: 270 60% 8%;
     --card-foreground: 0 0% 94%;
 
-    --popover: 0 0% 6%;
+    --popover: 270 60% 8%;
     --popover-foreground: 0 0% 94%;
 
-    --primary: 72 100% 50%;
-    --primary-foreground: 0 0% 2%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 23%;
+    --secondary: 270 30% 18%;
     --secondary-foreground: 0 0% 94%;
 
-    --muted: 0 0% 23%;
-    --muted-foreground: 0 0% 50%;
+    --muted: 270 30% 18%;
+    --muted-foreground: 270 15% 55%;
 
-    --accent: 20 100% 60%;
-    --accent-foreground: 0 0% 2%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 94%;
 
-    --border: 0 0% 100% / 0.06;
-    --input: 0 0% 100% / 0.06;
-    --ring: 72 100% 50%;
+    --border: 270 60% 100% / 0.08;
+    --input: 270 60% 100% / 0.08;
+    --ring: 45 100% 50%;
 
     --radius: 0.5rem;
 
-    --lime: 72 100% 50%;
-    --burnt-orange: 20 100% 60%;
-    --surface: 0 0% 6%;
-    --glass-border: 0 0% 100% / 0.06;
+    --lime: 45 100% 50%;
+    --burnt-orange: 280 80% 68%;
+    --surface: 270 60% 8%;
+    --glass-border: 270 60% 100% / 0.08;
   }
 }
 
@@ -52,10 +52,12 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     overflow-x: hidden;
+    background: #0A0A12;
+    min-height: 100vh;
   }
 
   ::selection {
-    background: hsl(72 100% 50% / 0.3);
+    background: hsl(45 100% 50% / 0.35);
     color: hsl(0 0% 94%);
   }
 }
@@ -80,20 +82,24 @@
   }
 
   .text-gradient-lime {
-    background: linear-gradient(90deg, hsl(0 0% 94%), hsl(72 100% 50%));
+    background: linear-gradient(90deg, hsl(0 0% 94%), hsl(45 100% 50%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glow-lime {
-    box-shadow: 0 0 30px hsl(72 100% 50% / 0.15), 0 0 60px hsl(72 100% 50% / 0.05);
+    box-shadow: 0 0 30px hsl(45 100% 50% / 0.2), 0 0 60px hsl(45 100% 50% / 0.08);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 22px rgba(250,195,0,0.30), 0 0 50px rgba(250,195,0,0.10);
   }
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(157, 78, 221, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(157, 78, 221, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 }

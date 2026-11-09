@@ -8,6 +8,9 @@ const items = [
   "OPEN SOURCE",
   "DEEP LEARNING",
   "COMPUTER VISION",
+  "DATA ANALYSIS",
+  "BUSINESS ANALYSIS",
+  "DATA VISUALIZATION",
 ];
 
 const Marquee = () => {

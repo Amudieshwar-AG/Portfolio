@@ -1,24 +1,20 @@
-import { useState, useCallback, useEffect } from "react";
-import Loader from "@/components/Loader";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import Achievements from "@/components/Achievements";
 import Experience from "@/components/Experience";
-import Milestones from "@/components/Milestones";
+import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
-  const [loaded, setLoaded] = useState(false);
-
   // Initialize Lenis smooth scroll
   useEffect(() => {
-    if (!loaded) return;
     let lenis: any;
     const init = async () => {
       const Lenis = (await import("@studio-freight/lenis")).default;
@@ -31,31 +27,24 @@ const Index = () => {
     };
     init();
     return () => lenis?.destroy();
-  }, [loaded]);
-
-  const handleLoaded = useCallback(() => setLoaded(true), []);
+  }, []);
 
   return (
     <>
-      {!loaded && <Loader onComplete={handleLoaded} />}
-      {loaded && (
-        <>
-          <CustomCursor />
-          <ScrollProgress />
-          <Navbar />
-          <main>
-            <Hero />
-            <Marquee />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Milestones />
-            <Contact />
-          </main>
-          <Footer />
-        </>
-      )}
+      <CustomCursor />
+      <ScrollProgress />
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Achievements />
+        <Experience />
+        <Research />
+        <Contact />
+      </main>
+      <Footer />
     </>
   );
 };
