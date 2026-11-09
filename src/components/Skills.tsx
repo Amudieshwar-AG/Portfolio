@@ -65,7 +65,6 @@ const skillCategories = [
     skills: [
       { name: "Node.js", iconClass: "devicon-nodejs-plain colored", icon: null, customColor: "" },
       { name: "Flask", iconClass: "devicon-flask-original colored", icon: null, customColor: "" },
-      { name: "FastAPI", iconClass: "devicon-fastapi-plain colored", icon: null, customColor: "" },
       { name: "Spring Boot", iconClass: "devicon-spring-original colored", icon: null, customColor: "" },
     ],
   },
@@ -88,7 +87,6 @@ const skillCategories = [
       { name: "Eclipse", iconClass: "devicon-eclipse-plain colored", icon: null, customColor: "" },
       { name: "Jupyter", iconClass: "devicon-jupyter-plain colored", icon: null, customColor: "" },
       { name: "Colab", iconClass: "", icon: Infinity, customColor: "text-orange-500" },
-      { name: "Figma", iconClass: "devicon-figma-plain colored", icon: null, customColor: "" },
       { name: "PowerBI", iconClass: "", icon: BarChart2, customColor: "text-yellow-500" },
       { name: "Excel", iconClass: "", icon: FileSpreadsheet, customColor: "text-green-600" },
     ],
