@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -13,6 +14,8 @@ import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
+  const [loading, setLoading] = useState(true);
+
   // Initialize Lenis smooth scroll
   useEffect(() => {
     let lenis: any;
@@ -31,6 +34,7 @@ const Index = () => {
 
   return (
     <>
+      {loading && <Loader onComplete={() => setLoading(false)} />}
       <CustomCursor />
       <ScrollProgress />
       <Navbar />

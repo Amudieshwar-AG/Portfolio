@@ -1,7 +1,10 @@
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Sparkles, Float } from "@react-three/drei";
+import { Environment, Sparkles, Float, useEnvironment } from "@react-three/drei";
+
+// Preload the reflection HDR map immediately on bundle evaluation so it's ready in memory
+useEnvironment.preload({ preset: "city" });
 
 class HelixCurve extends THREE.Curve<THREE.Vector3> {
   phase: number;
