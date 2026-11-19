@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
 import TextReveal from "./TextReveal";
-import { Code, GraduationCap, FileText, Layers, ArrowUpRight, ZoomIn } from "lucide-react";
+import { Code, GraduationCap, FileText, Layers, ArrowUpRight, ZoomIn, Download } from "lucide-react";
 import { useLightbox } from "@/context/LightboxContext";
 
 const CountUp = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
@@ -138,7 +138,40 @@ const About = () => {
 
           <TextReveal text="I'm a pre-final-year B.Tech student specializing in Artificial Intelligence and Data Science, with a strong foundation in AI, machine learning, and modern software development." className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6" />
           <TextReveal text="Driven by a passion for building practical projects, I enjoy taking intelligent algorithms and turning them into scalable, full-stack digital solutions." className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6" />
-          <TextReveal text="Always curious and hands-on, I actively explore emerging technologies to solve real-world problems with clean, purposeful code." className="text-base text-gray-400 leading-relaxed mb-8" />
+          <TextReveal text="Always curious and hands-on, I actively explore emerging technologies to solve real-world problems with clean, purposeful code." className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8" />
+
+          {/* Resume Download / View Shortcut */}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-8 flex items-center gap-3.5 flex-wrap"
+          >
+            <motion.a
+              href="/resume.pdf"
+              download="Amudieshwar_Resume.pdf"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#EAB308] hover:bg-[#FAC300] text-[#0A0A12] font-display font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(234,179,8,0.25)] hover:shadow-[0_4px_25px_rgba(234,179,8,0.45)] group cursor-pointer"
+            >
+              <Download size={14} strokeWidth={2.4} className="group-hover:translate-y-0.5 transition-transform" />
+              <span>Download Resume</span>
+            </motion.a>
+
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-white/80 hover:text-white border border-white/10 hover:border-[#EAB308]/40 font-display font-medium text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer"
+            >
+              <FileText size={14} className="text-[#EAB308]" />
+              <span>View PDF</span>
+              <ArrowUpRight size={13} strokeWidth={2} className="text-white/40" />
+            </motion.a>
+          </motion.div>
 
           {/* Focus Domains */}
           <motion.div

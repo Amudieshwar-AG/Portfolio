@@ -16,26 +16,31 @@ import ScrollProgress from "@/components/ScrollProgress";
 const Index = () => {
   const [loading, setLoading] = useState(true);
 
-  // Initialize Lenis smooth scroll
+  // Initialize Lenis smooth scroll once loader completes to prevent main-thread contention
   useEffect(() => {
+    if (loading) return;
     let lenis: any;
+    let rafId: number;
     const init = async () => {
       const Lenis = (await import("@studio-freight/lenis")).default;
       lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
       const raf = (time: number) => {
         lenis.raf(time);
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
       };
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
     init();
-    return () => lenis?.destroy();
-  }, []);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis?.destroy();
+    };
+  }, [loading]);
 
   return (
     <>
       {loading && <Loader onComplete={() => setLoading(false)} />}
-      <CustomCursor />
+      {!loading && <CustomCursor />}
       <ScrollProgress />
       <Navbar />
       <main>

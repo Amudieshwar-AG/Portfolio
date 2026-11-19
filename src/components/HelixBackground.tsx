@@ -179,16 +179,14 @@ const NeuralNetwork = () => {
             <group>
               {/* Inner ring */}
               <mesh>
-                <ringGeometry args={[node.size + 0.2, node.size + 0.25, 32]} />
+                <ringGeometry args={[node.size + 0.2, node.size + 0.25, 24]} />
                 <meshBasicMaterial color="#FFD700" transparent opacity={0.8} side={THREE.DoubleSide} />
               </mesh>
               {/* Outer ring */}
               <mesh>
-                <ringGeometry args={[node.size + 0.5, node.size + 0.55, 32]} />
+                <ringGeometry args={[node.size + 0.5, node.size + 0.55, 24]} />
                 <meshBasicMaterial color="#FFD700" transparent opacity={0.4} side={THREE.DoubleSide} />
               </mesh>
-              {/* Extra glow lighting */}
-              <pointLight distance={8} intensity={2.5} color="#FFD700" />
             </group>
           )}
         </group>
@@ -201,18 +199,23 @@ const HelixBackground = () => {
   return (
     <>
       <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-        <Canvas camera={{ position: [0, 0, 10], fov: 45 }} gl={{ antialias: true, alpha: true }}>
+        <Canvas 
+          camera={{ position: [0, 0, 10], fov: 45 }} 
+          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+          dpr={[1, 1.5]}
+        >
           {/* Lighting setup to enhance glossiness */}
           <ambientLight intensity={0.8} />
           <directionalLight position={[10, 10, 10]} intensity={2.5} color="#ffffff" />
           <directionalLight position={[-10, -10, -10]} intensity={1} color="#FAC300" />
           <spotLight position={[0, 10, 10]} intensity={3} angle={0.2} penumbra={1} color="#FAC300" />
+          <pointLight position={[0, 0, 4]} intensity={1.8} color="#FFD700" distance={25} />
           
-          {/* Golden particles floating around for atmosphere - increased visibility */}
+          {/* Golden particles floating around for atmosphere */}
           <Sparkles 
-            count={200} 
+            count={100} 
             scale={30} 
-            size={6} 
+            size={5} 
             speed={0.4} 
             opacity={0.8} 
             color="#FFD700" 
