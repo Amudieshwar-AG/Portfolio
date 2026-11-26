@@ -284,7 +284,7 @@ const Loader = ({ onComplete }: LoaderProps) => {
             <div
               className="absolute left-1/2 top-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-20"
               style={{
-                transform: "translate(-50%, min(74px, 14vw))",
+                transform: "translate(-50%, min(74px, 17vw))",
               }}
             >
               {/* 000% -> 100% Counter in Clean Bold Typography */}

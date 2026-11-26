@@ -115,16 +115,16 @@ const Projects = () => {
       style={{ height: "300vh" }}
     >
       {/* Sticky Viewport Container */}
-      <div className="sticky top-0 h-screen flex flex-col justify-between overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] flex flex-col justify-between overflow-hidden">
         {/* Header */}
-        <div className="px-6 md:px-14 pt-20 md:pt-24 pb-3 flex flex-col md:flex-row items-start md:items-end justify-between gap-3 z-20">
+        <div className="px-5 sm:px-6 md:px-14 pt-16 sm:pt-20 md:pt-24 pb-2 md:pb-3 flex flex-col md:flex-row items-start md:items-end justify-between gap-2 md:gap-3 z-20">
           <div>
             <motion.span
               variants={slideInLeft}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="font-mono text-xs uppercase tracking-[0.3em] text-[#FAC300] block mb-2"
+              className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#FAC300] block mb-1.5 md:mb-2"
             >
               // Selected Work ({projects.length})
             </motion.span>
@@ -133,7 +133,7 @@ const Projects = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
+              className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight"
             >
               Featured Projects
             </motion.h2>
@@ -144,7 +144,7 @@ const Projects = () => {
         </div>
 
         {/* Scroll Progress Bar */}
-        <div className="mx-6 md:mx-14 h-[2px] bg-white/10 rounded-full overflow-hidden z-20">
+        <div className="mx-5 sm:mx-6 md:mx-14 h-[2px] bg-white/10 rounded-full overflow-hidden z-20">
           <motion.div
             className="h-full bg-[#FAC300] shadow-[0_0_12px_rgba(250,195,0,0.8)]"
             style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
@@ -152,10 +152,10 @@ const Projects = () => {
         </div>
 
         {/* Horizontal Track Area */}
-        <div className="flex-1 flex items-center overflow-hidden my-auto py-2">
+        <div className="flex-1 flex items-center overflow-hidden my-auto py-1 md:py-2">
           <motion.div
             ref={trackRef}
-            className="flex gap-6 md:gap-8 px-6 md:px-14 items-center"
+            className="flex gap-5 md:gap-8 px-5 sm:px-6 md:px-14 items-center"
             style={{ x }}
           >
             {projects.map((project, i) => (
@@ -171,10 +171,10 @@ const Projects = () => {
         </div>
 
         {/* Bottom subtle indicator */}
-        <div className="px-6 md:px-14 pb-5 flex items-center justify-between text-[11px] font-mono text-white/40 z-20">
-          <span>01 / {projects[0].title}</span>
+        <div className="px-5 sm:px-6 md:px-14 pb-4 md:pb-5 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-white/40 z-20 gap-2">
+          <span className="truncate">01 / {projects[0].title}</span>
           <span className="hidden sm:inline">Engineered with high precision & scalable architectures</span>
-          <span>05 / {projects[projects.length - 1].title}</span>
+          <span className="truncate">05 / {projects[projects.length - 1].title}</span>
         </div>
       </div>
     </section>
@@ -206,39 +206,39 @@ const ProjectCard = ({
   return (
     <motion.div
       style={{ scale, opacity }}
-      className="flex-shrink-0 w-[88vw] sm:w-[82vw] md:w-[76vw] lg:w-[70vw] max-w-[1050px] h-[65vh] md:h-[68vh] max-h-[660px] min-h-[480px] rounded-2xl p-6 md:p-8 lg:p-9 flex flex-col justify-between relative overflow-hidden group bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/35 transition-all duration-500 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+      className="flex-shrink-0 w-[88vw] sm:w-[82vw] md:w-[76vw] lg:w-[70vw] max-w-[1050px] h-[68dvh] md:h-[68vh] max-h-[660px] md:min-h-[480px] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-9 flex flex-col justify-between relative overflow-hidden group bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/35 transition-all duration-500 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-xl"
     >
       {/* Background Watermark Project Number */}
-      <span className="font-mono text-[7rem] md:text-[11rem] font-bold text-white/[0.025] absolute -top-6 right-4 leading-none select-none pointer-events-none group-hover:text-[#FAC300]/[0.04] transition-colors duration-500">
+      <span className="font-mono text-[6rem] md:text-[11rem] font-bold text-white/[0.025] absolute -top-5 right-4 leading-none select-none pointer-events-none group-hover:text-[#FAC300]/[0.04] transition-colors duration-500">
         {project.num}
       </span>
 
       {/* Main Card Content */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 h-full items-center">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-5 md:gap-8 h-full items-stretch md:items-center">
         {/* Left Column: Details & CTA */}
-        <div className="md:col-span-7 flex flex-col justify-between h-full overflow-hidden">
+        <div className="md:col-span-7 flex flex-col justify-between min-h-0 md:h-full overflow-hidden">
           {/* Header Row: Badge & Category */}
           <div>
-            <div className="flex items-center gap-3 mb-3 flex-wrap">
-              <span className="font-mono text-xs font-bold text-[#FAC300] px-2.5 py-0.5 rounded-full bg-[#FAC300]/10 border border-[#FAC300]/30 shadow-[0_0_12px_rgba(250,195,0,0.15)]">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2 md:mb-3 flex-wrap">
+              <span className="font-mono text-[11px] sm:text-xs font-bold text-[#FAC300] px-2.5 py-0.5 rounded-full bg-[#FAC300]/10 border border-[#FAC300]/30 shadow-[0_0_12px_rgba(250,195,0,0.15)]">
                 {project.num}
               </span>
-              <span className="font-mono text-[11px] md:text-xs text-white/50 tracking-wider uppercase">
+              <span className="font-mono text-[10px] sm:text-[11px] md:text-xs text-white/50 tracking-wider uppercase truncate max-w-[210px] sm:max-w-none">
                 {project.category}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-3 group-hover:text-[#FAC300] transition-colors duration-300">
+            <h3 className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-2 md:mb-3 group-hover:text-[#FAC300] transition-colors duration-300">
               {project.title}
             </h3>
 
             {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 mb-2.5 md:mb-4">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="font-mono text-[10px] md:text-xs px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-white/75 hover:border-[#FAC300]/30 transition-colors"
+                  className="font-mono text-[9px] sm:text-[10px] md:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-white/[0.04] border border-white/10 text-white/75 hover:border-[#FAC300]/30 transition-colors"
                 >
                   {tag}
                 </span>
@@ -246,13 +246,13 @@ const ProjectCard = ({
             </div>
 
             {/* Description */}
-            <p className="text-white/65 font-body text-xs sm:text-sm md:text-sm leading-relaxed line-clamp-4 md:line-clamp-5 max-w-xl">
+            <p className="text-white/65 font-body text-xs sm:text-sm md:text-sm leading-relaxed line-clamp-3 sm:line-clamp-4 md:line-clamp-5 max-w-xl">
               {project.desc}
             </p>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-3 mt-auto">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2 md:pt-3 mt-auto">
             {project.live ? (
               <motion.a
                 href={project.live}
@@ -260,13 +260,13 @@ const ProjectCard = ({
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-2 font-display text-xs md:text-sm font-semibold bg-[#FAC300] hover:bg-[#FAC300]/90 text-[#0A0A12] px-5 py-2.5 rounded-full shadow-[0_4px_18px_rgba(250,195,0,0.25)] transition-all duration-300"
+                className="flex items-center gap-1.5 sm:gap-2 font-display text-[11px] sm:text-xs md:text-sm font-semibold bg-[#FAC300] hover:bg-[#FAC300]/90 text-[#0A0A12] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-[0_4px_18px_rgba(250,195,0,0.25)] transition-all duration-300"
               >
                 <span>Live Demo</span>
                 <ArrowUpRight size={14} strokeWidth={2.5} />
               </motion.a>
             ) : (
-              <div className="flex items-center gap-2 font-mono text-xs px-3.5 py-2 rounded-full bg-white/[0.04] border border-emerald-500/30 text-emerald-400">
+              <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/[0.04] border border-emerald-500/30 text-emerald-400">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -281,7 +281,7 @@ const ProjectCard = ({
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 font-display text-xs md:text-sm font-semibold bg-white/[0.05] hover:bg-white/[0.1] text-white/90 border border-white/15 hover:border-white/30 px-4 py-2.5 rounded-full transition-all duration-300"
+              className="flex items-center gap-1.5 sm:gap-2 font-display text-[11px] sm:text-xs md:text-sm font-semibold bg-white/[0.05] hover:bg-white/[0.1] text-white/90 border border-white/15 hover:border-white/30 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300"
             >
               <Github size={14} />
               <span>Source Code</span>
@@ -290,7 +290,7 @@ const ProjectCard = ({
         </div>
 
         {/* Right Column: Interactive Browser Mockup with Lightbox Zoom */}
-        <div className="md:col-span-5 h-full flex flex-col justify-center">
+        <div className="md:col-span-5 md:h-full flex flex-col justify-center flex-shrink-0">
           <div
             role="button"
             tabIndex={0}
@@ -300,10 +300,10 @@ const ProjectCard = ({
                 openLightbox(project.image, `${project.title} — Project Preview`);
               }
             }}
-            className="relative w-full h-[180px] sm:h-[220px] md:h-[280px] lg:h-[310px] rounded-xl overflow-hidden bg-black/50 border border-white/10 group-hover:border-[#FAC300]/40 transition-all duration-500 shadow-2xl flex flex-col group/mockup cursor-zoom-in"
+            className="relative w-full h-[145px] sm:h-[200px] md:h-[280px] lg:h-[310px] rounded-xl overflow-hidden bg-black/50 border border-white/10 group-hover:border-[#FAC300]/40 transition-all duration-500 shadow-2xl flex flex-col group/mockup cursor-zoom-in"
           >
             {/* Browser Window Bar */}
-            <div className="h-7 bg-white/[0.05] border-b border-white/10 px-3 flex items-center justify-between flex-shrink-0">
+            <div className="h-6 md:h-7 bg-white/[0.05] border-b border-white/10 px-3 flex items-center justify-between flex-shrink-0">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />

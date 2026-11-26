@@ -15,7 +15,7 @@ const Research = () => {
     <section
       id="research"
       ref={sectionRef}
-      className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
+      className="relative py-20 md:py-36 px-5 sm:px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
     >
       {/* Background Watermark */}
       <motion.div
@@ -58,10 +58,10 @@ const Research = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="relative z-10 max-w-5xl mx-auto rounded-2xl bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/30 transition-all duration-500 shadow-[0_16px_45px_rgba(0,0,0,0.55)] p-7 md:p-11 backdrop-blur-xl group"
+        className="relative z-10 max-w-5xl mx-auto rounded-2xl bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/30 transition-all duration-500 shadow-[0_16px_45px_rgba(0,0,0,0.55)] p-5 sm:p-7 md:p-11 backdrop-blur-xl group"
       >
         {/* Header Metadata Row */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-white/[0.08]">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-5 md:pb-6 border-b border-white/[0.08]">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="font-mono text-[11px] md:text-xs font-bold px-3 py-1 rounded-full bg-[#FAC300]/10 border border-[#FAC300]/30 text-[#FAC300] flex items-center gap-1.5 shadow-[0_0_12px_rgba(250,195,0,0.15)]">
               <Award size={13} />
@@ -72,7 +72,7 @@ const Research = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-3 text-white/45 font-mono text-xs">
+          <div className="flex items-center flex-wrap gap-2 sm:gap-3 text-white/45 font-mono text-[11px] sm:text-xs">
             <span className="flex items-center gap-1.5">
               <Calendar size={12} className="text-[#FAC300]" />
               February 4, 2026

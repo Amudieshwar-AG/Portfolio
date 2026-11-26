@@ -60,7 +60,7 @@ const Experience = () => {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
+      className="relative py-20 md:py-36 px-5 sm:px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
     >
       {/* Background Watermark */}
       <motion.div
@@ -110,11 +110,11 @@ const Experience = () => {
         {experiences.map((exp, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-            className={`relative mb-14 md:mb-20 pl-12 md:pl-0 ${
+            className={`relative mb-12 md:mb-20 pl-10 sm:pl-12 md:pl-0 ${
               i % 2 === 0 ? "md:pr-[53%]" : "md:pl-[53%]"
             }`}
           >
@@ -124,7 +124,7 @@ const Experience = () => {
             </div>
 
             {/* Experience Card */}
-            <div className="group rounded-2xl p-6 md:p-7 bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/40 transition-all duration-500 shadow-[0_12px_36px_rgba(0,0,0,0.45)] hover:shadow-[0_14px_40px_rgba(250,195,0,0.12)] backdrop-blur-xl">
+            <div className="group rounded-2xl p-4 sm:p-6 md:p-7 bg-[#0D0D17]/90 border border-white/10 hover:border-[#FAC300]/40 transition-all duration-500 shadow-[0_12px_36px_rgba(0,0,0,0.45)] hover:shadow-[0_14px_40px_rgba(250,195,0,0.12)] backdrop-blur-xl">
               {/* Header with DP/Logo & Role */}
               <div className="flex items-start gap-4 mb-4">
                 {/* DP / Certificate Badge Frame with Lightbox Zoom */}
@@ -174,7 +174,7 @@ const Experience = () => {
                     <span className="font-medium text-white/80">{exp.company}</span>
                   </div>
                   {exp.partner && (
-                    <p className="text-[11px] font-mono text-white/40 mt-0.5 truncate">
+                    <p className="text-[11px] font-mono text-white/40 mt-0.5 leading-snug">
                       {exp.partner}
                     </p>
                   )}

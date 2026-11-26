@@ -19,9 +19,8 @@ const Footer = () => {
         className="relative z-10 w-full flex justify-center px-4"
       >
         <h2 
-          className="font-display font-bold text-center leading-none select-none"
+          className="font-display font-bold text-center leading-none select-none text-[clamp(1.75rem,8.4vw,3.5rem)] md:text-[clamp(2rem,10vw,12rem)]"
           style={{ 
-            fontSize: "clamp(2rem, 10vw, 12rem)",
             background: "linear-gradient(to right, #FFFFFF, #FAC300)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",

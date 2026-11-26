@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Sparkles, Float, useEnvironment } from "@react-three/drei";
 
 // Preload the reflection HDR map immediately on bundle evaluation so it's ready in memory
@@ -30,6 +30,17 @@ class HelixCurve extends THREE.Curve<THREE.Vector3> {
 
 const DNA = () => {
   const groupRef = useRef<THREE.Group>(null);
+  const { viewport, size } = useThree();
+
+  const isMobile = size.width < 768 || viewport.aspect < 0.9;
+  const isSmallMobile = size.width < 480;
+
+  // Keep desktop positioning untouched; on portrait/mobile scale down and anchor upper-right
+  // so the helix complements the hero copy instead of overwhelming the narrow screen.
+  const dnaPosition: [number, number, number] = isMobile
+    ? [1.5, 1.8, -11.5]
+    : [5, 0, -8];
+  const dnaScale = isSmallMobile ? 0.54 : isMobile ? 0.66 : 1;
   
   const curve1 = useMemo(() => new HelixCurve(0), []);
   const curve2 = useMemo(() => new HelixCurve(Math.PI), []);
@@ -77,8 +88,8 @@ const DNA = () => {
   }), []);
 
   return (
-    // Positioned to the right and tilted diagonally
-    <group position={[5, 0, -8]} rotation={[0, 0, Math.PI / 5.5]}>
+    // Positioned to the right and tilted diagonally (responsive on mobile)
+    <group position={dnaPosition} scale={dnaScale} rotation={[0, 0, Math.PI / 5.5]}>
       <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.8}>
         <group ref={groupRef}>
           {/* Backbone 1 */}
@@ -233,20 +244,36 @@ const HelixBackground = () => {
       </div>
 
       {/* Radial soft glow behind the 3D scene */}
-      <div 
-        className="absolute inset-0 pointer-events-none" 
+      <div
+        className="hidden md:block absolute inset-0 pointer-events-none"
         style={{
           background: "radial-gradient(circle at 75% 50%, rgba(250, 195, 0, 0.08) 0%, transparent 60%)",
-          zIndex: -1
+          zIndex: -1,
         }}
       />
-      
-      {/* Left-side dark vignette to protect text readability */}
-      <div 
-        className="absolute inset-0 pointer-events-none" 
+      <div
+        className="md:hidden absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at 70% 30%, rgba(250, 195, 0, 0.09) 0%, transparent 55%)",
+          zIndex: -1,
+        }}
+      />
+
+      {/* Desktop: Left-side dark vignette to protect text readability */}
+      <div
+        className="hidden md:block absolute inset-0 pointer-events-none"
         style={{
           background: "linear-gradient(to right, rgba(10,10,18,0.95) 0%, rgba(10,10,18,0.85) 35%, transparent 100%)",
-          zIndex: 1
+          zIndex: 1,
+        }}
+      />
+
+      {/* Mobile: Bottom-up gradient so upper helix stays vivid while hero copy remains readable */}
+      <div
+        className="md:hidden absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(to top, rgba(10,10,18,0.96) 0%, rgba(10,10,18,0.82) 42%, rgba(10,10,18,0.2) 100%)",
+          zIndex: 1,
         }}
       />
     </>

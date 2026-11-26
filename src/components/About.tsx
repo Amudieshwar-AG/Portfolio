@@ -49,7 +49,7 @@ const About = () => {
   const watermarkY = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-32 px-6 md:px-12 overflow-hidden bg-[#030712] text-white">
+    <section id="about" ref={sectionRef} className="relative py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden bg-[#030712] text-white">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#EAB308]/5 blur-[120px] rounded-full pointer-events-none" />
       
@@ -60,10 +60,10 @@ const About = () => {
         ABOUT
       </motion.div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto pt-10">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-6xl mx-auto pt-4 md:pt-10">
         
         {/* Profile Image with Animated Gold Frame */}
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative aspect-[3/4] max-w-[320px] mx-auto md:mx-0 w-full">
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative aspect-[3/4] max-w-[260px] sm:max-w-[300px] md:max-w-[320px] mx-auto md:mx-0 w-full">
           {/* Main Outer Glow */}
           <div className="absolute inset-0 bg-[#EAB308]/20 blur-2xl rounded-2xl" />
           
@@ -211,9 +211,9 @@ const About = () => {
         initial="hidden" 
         whileInView="visible" 
         viewport={{ once: true }} 
-        className="relative z-10 mt-28 max-w-4xl mx-auto bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-colors hover:border-[#EAB308]/30"
+        className="relative z-10 mt-16 md:mt-28 max-w-4xl mx-auto bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-colors hover:border-[#EAB308]/30"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-4 divide-x-0 md:divide-x divide-white/10">
           {stats.map((stat, i) => (
             <motion.a
               key={stat.label}
@@ -222,7 +222,7 @@ const About = () => {
               custom={i}
               whileHover={{ y: -4, scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="flex flex-col items-center text-center px-4 group cursor-pointer transition-all duration-300"
+              className="flex flex-col items-center text-center px-1 sm:px-4 group cursor-pointer transition-all duration-300"
             >
               <div className="relative">
                 <stat.icon

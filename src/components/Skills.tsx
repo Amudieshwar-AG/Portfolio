@@ -95,7 +95,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-32 px-6 md:px-12 bg-gradient-to-b from-[#030712] to-[#071426] text-white overflow-hidden">
+    <section id="skills" className="relative py-20 md:py-32 px-5 sm:px-6 md:px-12 bg-gradient-to-b from-[#030712] to-[#071426] text-white overflow-hidden">
       <Particles />
       
       {/* Glow Effects */}
@@ -103,12 +103,12 @@ const Skills = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#EAB308]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#EAB308] font-mono text-sm md:text-base tracking-widest uppercase mb-4 font-semibold shadow-sm"
+            className="text-[#EAB308] font-mono text-xs sm:text-sm md:text-base tracking-widest uppercase mb-3 md:mb-4 font-semibold shadow-sm"
           >
             AI & Data Science Engineer | GenAI | Machine Learning | Full Stack Developer
           </motion.p>
@@ -117,13 +117,13 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight"
           >
             Technical Arsenal
           </motion.h2>
         </div>
 
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-12 md:gap-20">
           {skillCategories.map((category, i) => (
             <motion.div 
               key={category.title}
@@ -131,17 +131,17 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex flex-col gap-8"
+              className="flex flex-col gap-6 md:gap-8"
             >
               {/* Category Title */}
-              <div className="flex items-center gap-4 border-b border-white/5 pb-4">
-                <div className="w-2 h-8 bg-gradient-to-b from-[#EAB308] to-[#EAB308]/30 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.5)]" />
-                <div className="flex items-center gap-3 flex-wrap">
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-wide text-white/90">
+              <div className="flex items-center gap-3 md:gap-4 border-b border-white/5 pb-3 md:pb-4">
+                <div className="w-1.5 md:w-2 h-6 md:h-8 bg-gradient-to-b from-[#EAB308] to-[#EAB308]/30 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.5)]" />
+                <div className="flex items-center gap-2.5 md:gap-3 flex-wrap">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide text-white/90">
                     {category.title}
                   </h3>
                   {category.tag && (
-                    <span className="font-mono text-xs md:text-sm text-[#EAB308] bg-[#EAB308]/10 border border-[#EAB308]/30 px-3 py-1 rounded-full font-medium tracking-wider uppercase">
+                    <span className="font-mono text-[10px] sm:text-xs md:text-sm text-[#EAB308] bg-[#EAB308]/10 border border-[#EAB308]/30 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full font-medium tracking-wider uppercase">
                       {category.tag}
                     </span>
                   )}
@@ -149,18 +149,18 @@ const Skills = () => {
               </div>
               
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-5 md:gap-6">
                 {category.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
                     whileHover={{ y: -8, scale: 1.02 }}
-                    className="group relative flex flex-col items-center justify-center gap-5 p-6 bg-[#0B101A] backdrop-blur-xl rounded-[24px] border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-white/10 hover:bg-[#0F1623] hover:shadow-[0_8px_32px_rgba(255,255,255,0.05)] overflow-hidden cursor-default"
+                    className="group relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 p-4 sm:p-6 bg-[#0B101A] backdrop-blur-xl rounded-[18px] sm:rounded-[24px] border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-white/10 hover:bg-[#0F1623] hover:shadow-[0_8px_32px_rgba(255,255,255,0.05)] overflow-hidden cursor-default"
                   >
                     {/* Shimmer Effect */}
                     <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:animate-shimmer" />
 
                     {/* Icon */}
-                    <div className="relative z-10 text-5xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+                    <div className="relative z-10 text-4xl sm:text-5xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
                       {skill.iconClass ? (
                         <i className={skill.iconClass} />
                       ) : (

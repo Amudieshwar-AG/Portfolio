@@ -107,11 +107,11 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-32 px-6 md:px-12 overflow-hidden bg-[#0A0A12]">
+    <section id="contact" ref={sectionRef} className="relative py-20 md:py-32 px-5 sm:px-6 md:px-12 overflow-hidden bg-[#0A0A12]">
       {/* Rotating ambient decoration */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 pointer-events-none">
         <motion.div
-          className="w-[520px] h-[520px] rounded-full border border-[#FAC300]/10"
+          className="w-[280px] h-[280px] md:w-[520px] md:h-[520px] rounded-full border border-[#FAC300]/10"
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
         />
@@ -124,7 +124,7 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="font-display text-[12vw] md:text-[10vw] font-bold leading-none mb-16 text-white"
+          className="font-display text-[13vw] sm:text-[12vw] md:text-[10vw] font-bold leading-none mb-10 md:mb-16 text-white"
         >
           {displayText}
         </motion.h2>
@@ -146,7 +146,7 @@ const Contact = () => {
               <div className="flex items-center gap-3 flex-wrap">
                 <a
                   href={`mailto:${email}?subject=Opportunity%20%2F%20Collaboration`}
-                  className="font-mono text-lg md:text-xl text-white hover:text-[#FAC300] transition-colors break-all underline decoration-white/20 hover:decoration-[#FAC300] underline-offset-4"
+                  className="font-mono text-sm sm:text-lg md:text-xl text-white hover:text-[#FAC300] transition-colors break-all underline decoration-white/20 hover:decoration-[#FAC300] underline-offset-4"
                   title="Click to compose an email"
                 >
                   {email}

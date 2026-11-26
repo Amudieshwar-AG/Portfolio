@@ -80,7 +80,7 @@ const Achievements = () => {
     <section
       id="achievements"
       ref={sectionRef}
-      className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
+      className="relative py-20 md:py-36 px-5 sm:px-6 md:px-14 overflow-hidden bg-[#0A0A12] border-t border-white/[0.04]"
     >
       {/* Background Watermark */}
       <motion.div
